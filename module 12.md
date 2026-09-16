@@ -15,11 +15,77 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *top = NULL;
+
+// Push operation
+void push(int value)
+{
+    struct Node *newNode;
+
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+
+    if(newNode == NULL)
+    {
+        printf("Stack Overflow");
+        return;
+    }
+
+    newNode->data = value;
+    newNode->next = top;
+    top = newNode;
+}
+
+// Display operation
+void display()
+{
+    struct Node *temp;
+
+    if(top == NULL)
+    {
+        printf("Stack is empty");
+        return;
+    }
+
+    temp = top;
+
+    printf("Stack elements:\n");
+
+    while(temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Stack elements:
+30
+20
+10
+```
 
 
 Result:
@@ -40,11 +106,108 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *top = NULL;
+
+// Push operation
+void push(int value)
+{
+    struct Node *newNode;
+
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+
+    if(newNode == NULL)
+    {
+        printf("Stack Overflow");
+        return;
+    }
+
+    newNode->data = value;
+    newNode->next = top;
+    top = newNode;
+}
+
+// Pop operation
+void pop()
+{
+    struct Node *temp;
+
+    if(top == NULL)
+    {
+        printf("Stack Underflow");
+        return;
+    }
+
+    temp = top;
+    printf("Popped element = %d\n", top->data);
+    top = top->next;
+    free(temp);
+}
+
+// Display operation
+void display()
+{
+    struct Node *temp;
+
+    if(top == NULL)
+    {
+        printf("Stack is empty");
+        return;
+    }
+
+    temp = top;
+
+    printf("Stack elements:\n");
+
+    while(temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+
+    printf("Before Pop:\n");
+    display();
+
+    pop();
+
+    printf("\nAfter Pop:\n");
+    display();
+
+    return 0;
+}
+```
 
 Output:
+```
+Before Pop:
+Stack elements:
+30
+20
+10
 
-//paste your output here
+Popped element = 30
+
+After Pop:
+Stack elements:
+20
+10
+```
 
 
 
@@ -64,11 +227,87 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *front = NULL;
+struct Node *rear = NULL;
+
+// Enqueue operation
+void enqueue(int value)
+{
+    struct Node *newNode;
+
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+
+    if(newNode == NULL)
+    {
+        printf("Queue Overflow");
+        return;
+    }
+
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if(front == NULL)
+    {
+        front = rear = newNode;
+    }
+    else
+    {
+        rear->next = newNode;
+        rear = newNode;
+    }
+}
+
+// Display operation
+void display()
+{
+    struct Node *temp;
+
+    if(front == NULL)
+    {
+        printf("Queue is empty");
+        return;
+    }
+
+    temp = front;
+
+    printf("Queue elements:\n");
+
+    while(temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Queue elements:
+10
+20
+30
+```
 
 Result:
 Thus, the program to display queue elements using linked list is verified successfully.
@@ -90,11 +329,85 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *front = NULL;
+struct Node *rear = NULL;
+
+// Enqueue operation
+void enqueue(int value)
+{
+    struct Node *newNode;
+
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+
+    if(newNode == NULL)
+    {
+        printf("Queue Overflow");
+        return;
+    }
+
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if(front == NULL)
+    {
+        front = rear = newNode;
+    }
+    else
+    {
+        rear->next = newNode;
+        rear = newNode;
+    }
+}
+
+// Display operation
+void display()
+{
+    struct Node *temp = front;
+
+    if(front == NULL)
+    {
+        printf("Queue is empty");
+        return;
+    }
+
+    printf("Queue elements:\n");
+
+    while(temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Queue elements:
+10
+20
+30
+```
 
 Result:
 Thus, the program to insert elements in queue using linked list is verified successfully.
@@ -117,11 +430,75 @@ o	If the queue is not empty, return the data stored in the front node of the lin
 
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *front = NULL;
+struct Node *rear = NULL;
+
+// Enqueue operation
+void enqueue(int value)
+{
+    struct Node *newNode;
+
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+
+    if(newNode == NULL)
+    {
+        printf("Queue Overflow");
+        return;
+    }
+
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if(front == NULL)
+    {
+        front = rear = newNode;
+    }
+    else
+    {
+        rear->next = newNode;
+        rear = newNode;
+    }
+}
+
+// Peek operation
+void peek()
+{
+    if(front == NULL)
+    {
+        printf("Queue is empty");
+    }
+    else
+    {
+        printf("Front element = %d", front->data);
+    }
+}
+
+int main()
+{
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    peek();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Front element = 10
+```
 
 
 
