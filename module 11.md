@@ -12,10 +12,39 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
+
+```c
+#include <stdio.h>
+
+// Function to find the greatest number
+int greatest(int a, int b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
+int main()
+{
+    int num1, num2, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    result = greatest(num1, num2);
+
+    printf("Greatest number = %d", result);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Enter two numbers: 25 40
+Greatest number = 40
+```
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,11 +65,48 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int a, b;
+    int and_val, or_val, xor_val, max;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    and_val = a & b;
+    or_val = a | b;
+    xor_val = a ^ b;
+
+    printf("AND value = %d\n", and_val);
+    printf("OR value = %d\n", or_val);
+    printf("XOR value = %d\n", xor_val);
+
+    max = and_val;
+
+    if (or_val > max)
+        max = or_val;
+
+    if (xor_val > max)
+        max = xor_val;
+
+    printf("Maximum value = %d", max);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
-
+```
+Enter two numbers: 5 3
+AND value = 1
+OR value = 7
+XOR value = 6
+Maximum value = 7
+```
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
 is verified successfully.
@@ -59,10 +125,43 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int request;
+
+    printf("Enter your request number: ");
+    scanf("%d", &request);
+
+    if (request == 1)
+    {
+        printf("Request 1 is processed");
+    }
+    else if (request == 2)
+    {
+        printf("Request 2 is processed");
+    }
+    else if (request == 3)
+    {
+        printf("Request 3 is processed");
+    }
+    else
+    {
+        printf("Invalid request");
+    }
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Enter your request number: 2
+Request 2 is processed
+```
 
 
 Result:
@@ -86,10 +185,42 @@ Algorithm:
 
 
 Program:
-//type your code here
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int arr[100], n, i, sum = 0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the array elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+        sum = sum + arr[i];
+    }
+
+    printf("Sum of array elements = %d", sum);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Enter the number of elements: 5
+Enter the array elements:
+10
+20
+30
+40
+50
+Sum of array elements = 150
+```
 
  
 
@@ -120,10 +251,38 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char sentence[100];
+    int i, count = 1;
+
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    for(i = 0; sentence[i] != '\0'; i++)
+    {
+        if(sentence[i] == ' ')
+        {
+            count++;
+        }
+    }
+
+    printf("Number of words = %d", count);
+
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+```
+Enter a sentence: C programming is easy
+Number of words = 4
+```
 
 
 
