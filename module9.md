@@ -13,11 +13,62 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+
+#define MAX 5
+
+int stack[MAX];
+int top = -1;
+
+void push(int value)
+{
+    if (top == MAX - 1)
+    {
+        printf("Stack Overflow\n");
+        return;
+    }
+
+    top++;
+    stack[top] = value;
+}
+
+void display()
+{
+    if (top == -1)
+    {
+        printf("Stack is Empty");
+        return;
+    }
+
+    printf("Stack elements:\n");
+
+    for (int i = top; i >= 0; i--)
+    {
+        printf("%d ", stack[i]);
+    }
+}
+
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+    push(40);
+    push(50);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+```
+Stack elements:
+50 40 30 20 10
+```
 
 
 
@@ -36,11 +87,66 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+
+#define MAX 5
+
+int stack[MAX];
+int top = -1;
+
+void push(int value)
+{
+    if (top == MAX - 1)
+    {
+        printf("Stack Overflow");
+        return;
+    }
+
+    top++;
+    stack[top] = value;
+
+    printf("%d pushed into stack\n", value);
+}
+
+void display()
+{
+    if (top == -1)
+    {
+        printf("Stack is Empty");
+        return;
+    }
+
+    printf("Stack elements:\n");
+
+    for (int i = top; i >= 0; i--)
+    {
+        printf("%d ", stack[i]);
+    }
+}
+
+int main()
+{
+    int value;
+
+    printf("Enter the element to push: ");
+    scanf("%d", &value);
+
+    push(value);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Enter the element to push: 25
+25 pushed into stack
+Stack elements:
+25
+```
 
 
 
@@ -62,12 +168,65 @@ Algorithm:
  
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+
+#define MAX 5
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int value)
+{
+    if (rear == MAX - 1)
+    {
+        printf("Queue Overflow\n");
+        return;
+    }
+
+    if (front == -1)
+        front = 0;
+
+    rear++;
+    queue[rear] = value;
+}
+
+void display()
+{
+    if (front == -1)
+    {
+        printf("Queue is Empty");
+        return;
+    }
+
+    printf("Queue elements:\n");
+
+    for (int i = front; i <= rear; i++)
+    {
+        printf("%d ", queue[i]);
+    }
+}
+
+int main()
+{
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    enqueue(50);
+
+    display();
+
+    return 0;
+}
+```
+
 
 Output:
-
-//paste your output here
-
+```
+Queue elements:
+10 20 30 40 50
+```
 
 Result:
 Thus, the program to display queue elements using array is verified successfully.
@@ -86,11 +245,69 @@ Algorithm:
 
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+
+#define MAX 5
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int value)
+{
+    if (rear == MAX - 1)
+    {
+        printf("Queue Overflow");
+        return;
+    }
+
+    if (front == -1)
+        front = 0;
+
+    rear++;
+    queue[rear] = value;
+
+    printf("%d inserted into queue\n", value);
+}
+
+void display()
+{
+    if (front == -1)
+    {
+        printf("Queue is Empty");
+        return;
+    }
+
+    printf("Queue elements:\n");
+
+    for (int i = front; i <= rear; i++)
+    {
+        printf("%d ", queue[i]);
+    }
+}
+
+int main()
+{
+    int value;
+
+    printf("Enter the element to insert: ");
+    scanf("%d", &value);
+
+    enqueue(value);
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Enter the element to insert: 25
+25 inserted into queue
+Queue elements:
+25
+```
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
@@ -121,11 +338,83 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-//type your code here
+```c
+#include <stdio.h>
+
+#define MAX 5
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int value)
+{
+    if (rear == MAX - 1)
+    {
+        printf("Queue Overflow\n");
+        return;
+    }
+
+    if (front == -1)
+        front = 0;
+
+    rear++;
+    queue[rear] = value;
+}
+
+void dequeue()
+{
+    if (front == -1 || front > rear)
+    {
+        printf("Queue Underflow\n");
+        return;
+    }
+
+    printf("Deleted element: %d\n", queue[front]);
+    front++;
+
+    if (front > rear)
+    {
+        front = rear = -1;
+    }
+}
+
+void display()
+{
+    if (front == -1)
+    {
+        printf("Queue is Empty");
+        return;
+    }
+
+    printf("Queue elements:\n");
+
+    for (int i = front; i <= rear; i++)
+    {
+        printf("%d ", queue[i]);
+    }
+}
+
+int main()
+{
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+
+    dequeue();
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
-
-//paste your output here
+```
+Deleted element: 10
+Queue elements:
+20 30 40
+```
 
 
 Result:
